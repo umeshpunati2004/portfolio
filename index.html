@@ -3,39 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f4a261;
+        }
+
+        section {
+            padding: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            background-color: #f4a261;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e76f51;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <p>Your tagline or profession</p>
-    </header>
+
+<header>
+    <h1>My Portfolio</h1>
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
     </nav>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
-    </section>
-    <section id="portfolio">
-        <h2>My Work</h2>
-        <div class="gallery">
-            <img src="design1.jpg" alt="Design 1">
-            <img src="design2.jpg" alt="Design 2">
-            <img src="design3.jpg" alt="Design 3">
-        </div>
-    </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: yourname@example.com</p>
-    </section>
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>This is the about section with transition effects.</p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <p>Here are my skills. Scroll down to see the animation effects.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Feel free to get in touch.</p>
+    <button class="btn">Contact</button>
+</section>
+
+<script>
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('section').forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                section.classList.add('visible');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
